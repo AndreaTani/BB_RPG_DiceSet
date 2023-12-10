@@ -1,4 +1,3 @@
-using Xunit;
 using Xunit.Abstractions;
 
 namespace BB_RPG_DiceSet.Test
@@ -19,7 +18,7 @@ namespace BB_RPG_DiceSet.Test
         [InlineData(12)]
         [InlineData(20)]
         [InlineData(100)]
-        public void GivenNewDie_WhenRoll_ThenResultBetwee_1andDieSides(int sides)
+        public void GivenNewDie_WhenRoll_ThenResultBetween_1andDieSides(int sides)
         {
             // Given
             var die = new Die(sides);
@@ -61,10 +60,11 @@ namespace BB_RPG_DiceSet.Test
             float expectedFrequency = numberOfRolls / (float)sides;
             float tollerance = expectedFrequency * tollerancePercentage / 100;
 
-            for (int i = 1; i <= sides; i++)
-            {
-                _testOutputHelper.WriteLine($"Result {i}, expected frequency: {expectedFrequency}, actual frequency: {frequencies[i]}, difference: {expectedFrequency - frequencies[i]}, tollerance: {tollerance}");
-            }
+            ////DEBUG_LOG
+            //for (int i = 1; i <= sides; i++)
+            //{
+            //    _testOutputHelper.WriteLine($"Result {i}, expected frequency: {expectedFrequency}, actual frequency: {frequencies[i]}, difference: {expectedFrequency - frequencies[i]}, tollerance: {tollerance}");
+            //}
 
             // Then
             foreach (var kvp in frequencies)

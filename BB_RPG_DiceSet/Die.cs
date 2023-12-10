@@ -4,7 +4,7 @@ namespace BB_RPG_DiceSet
 {
     public class Die
     {
-        int _sides;
+        private readonly int _sides;
 
         public Die(int sides)
         {
