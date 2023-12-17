@@ -11,6 +11,7 @@ namespace BB_RPG_DiceSet.Test
         }
 
         [Theory]
+        [InlineData(1)]
         [InlineData(4)]
         [InlineData(6)]
         [InlineData(8)]
