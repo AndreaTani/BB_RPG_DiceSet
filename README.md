@@ -38,7 +38,7 @@ int totalResult = diceSet.Roll();
 Console.WriteLine($"Total Result: {totalResult}");
 
 // Roll the dice set and get dice result and bonus result
-DiceResult separateResult = diceSet.RollSeparate();
+List<DiceResult> separateResult = diceSet.RollSeparate();
 Console.WriteLine($"Separated Results: Base = {separateResult.Base}, Bonus = {separateResult.Bonus}");
 ```
 
@@ -60,7 +60,8 @@ Console.WriteLine($"Custom Dice Set Result: {customDiceSetResult}");
 
 ## Contributing
 
-Feel free to contribute to the development of BB_RPG_DiceSet. If you encounter any issues or have suggestions for improvement, please [open an issue](https://github.com/AndreaTani/BB_RPG_DiceSet/issues) or submit a pull request.
+Feel free to contribute to the development of BB_RPG_DiceSet.
+If you encounter any issues or have suggestions for improvement, please [open an issue](https://github.com/AndreaTani/BB_RPG_DiceSet/issues) or submit a pull request.
 
 ## License
 
