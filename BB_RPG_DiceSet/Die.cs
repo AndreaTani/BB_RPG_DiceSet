@@ -3,31 +3,48 @@
 namespace BB_RPG_DiceSet
 {
     /// <summary>
-    /// Class <c>Die</c> models a generic game die, like a standard 6 sided die or a polyhedric die
+    /// Models a generic game die, like a standard 6 sided die or a polyhedric die. Implements the <see cref="IRollable"/> interface
     /// </summary>
-    public class Die
+    public class Die : IRollable
     {
         private readonly int _sides;
+        private DiceResult _diceResult;
+        private string _label;
 
         /// <summary>
-        /// Constructor to create a game die with a positive it number of sides
+        /// Create a game die with a positive <see cref="int"/> number of sides
         /// </summary>
         /// <param name="sides">number of sides</param>
         public Die(int sides)
         {
-            if(sides < 1)
+            if (sides < 1)
                 throw new ArgumentOutOfRangeException(nameof(sides));
 
             _sides = sides;
+            _label = $"D{sides}";
         }
 
-        /// <summary>
-        /// Rolls the die
-        /// </summary>
-        /// <returns>an integer number between 1 and the number of sides of the die</returns>
         public int Roll()
         {
             return RandomNumberGenerator.GetInt32(1, _sides + 1);
+        }
+
+        public DiceResult RollSeparate()
+        {
+            _diceResult.Base = Roll();
+            _diceResult.Bonus = 0;
+
+            return _diceResult;
+        }
+
+        public string GetLabel()
+        {
+            return _label;
+        }
+
+        public void SetLabel(string label)
+        {
+            _label = label;
         }
     }
 }
