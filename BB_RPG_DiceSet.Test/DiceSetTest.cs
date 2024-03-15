@@ -17,6 +17,7 @@ namespace BB_RPG_DiceSet.Test
         [Theory]
         [InlineData("d20", 1, 20)]
         [InlineData("2d4+2", 4, 10)]
+        [InlineData("3d10-4", -1, 26)]
         [InlineData("8d6", 8, 48)]
         [InlineData("15d1", 15, 15)]
         public void GivenDiceSet_WhenDefinitonIsValid_ThenReturnResultInRange(string definition, int min, int max)

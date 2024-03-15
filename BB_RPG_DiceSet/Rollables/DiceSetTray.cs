@@ -13,15 +13,6 @@
         }
 
         /// <summary>
-        /// Create a <c>DiceSetTray</c> from a list of <c>IRollable</c> items
-        /// </summary>
-        /// <param name="list">A List of IRollable items</param>
-        public DiceSetTray(List<IRollable> list)
-        {
-            _tray = list;
-        }
-
-        /// <summary>
         /// Create a <c>DiceSetTray</c> from a single <c>IRollable</c> item
         /// </summary>
         /// <param name="item">A single <c>IRollable</c> item</param>
@@ -31,6 +22,33 @@
             {
                 item
             };
+        }
+
+        /// <summary>
+        /// Create a <c>DiceSetTray</c> from a list of <c>IRollable</c> items
+        /// </summary>
+        /// <param name="list">A List of IRollable items</param>
+        public DiceSetTray(List<IRollable> list)
+        {
+            _tray = list;
+        }
+
+        /// <summary>
+        /// Add a <c>IRollable</c> item to the <c>DiceTray</c>
+        /// </summary>
+        /// <param name="rollable">A single IRollable item</param>
+        public new void Add(IRollable rollable)
+        {
+            _tray.Add(rollable);
+        }
+
+        /// <summary>
+        /// Add a list of <c>IRollable</c> items to the <c>DiceTray</c>
+        /// </summary>
+        /// <param name="rollable">A list of IRollable item</param>
+        public void AddRange(List<IRollable> list)
+        {
+            _tray.AddRange(list);
         }
 
         /// <summary>
@@ -46,7 +64,7 @@
         /// <summary>
         /// Roll the <c>DiceSetTray</c>
         /// </summary>
-        /// <returns>A <see cref="DiceResult"/> struct containing the base result and the bonus result</returns>
+        /// <returns>A <see cref="DiceResult"/> struct containing the base result and the bonus/penalty result</returns>
         public DiceResult RollSeparate()
         {
             int diceRoll = 0;
@@ -66,7 +84,7 @@
         /// <summary>
         /// Roll the <c>DiceSetTray</c>
         /// </summary>
-        /// <returns>A <see cref="List{T}"/> containing each dice-like object in the tray with their base and bonus results</returns>
+        /// <returns>A <see cref="List{T}"/> containing each dice-like object in the tray with their base and bonus/penalty results</returns>
         /// <remarks><see cref="T"/> is <see cref="DiceResult"/></remarks>
         public List<DiceResult> RollTray()
         {
@@ -79,6 +97,16 @@
             }
 
             return result;
+        }
+
+        public int Min()
+        {
+            return _tray.Sum(t => t.Min());
+        }
+
+        public int Max()
+        {
+            return _tray.Sum(t => t.Max());
         }
     }
 }

@@ -1,5 +1,11 @@
 ﻿# Version history
 
+## Version 1.1.1
+- Bonuses can have negative values representing penalties
+- Added two DiceTray methods
+	- Add, for adding a single IRollable item to the tray
+	- AddRange, for adding a list of IRollable items to the tray
+
 ## Version 1.1.0
 - Added DiceSetTray feature that can:
 	- contain multiple DiceSet with different kind of dice and bonuses

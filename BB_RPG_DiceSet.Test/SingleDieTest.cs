@@ -39,6 +39,7 @@ namespace BB_RPG_DiceSet.Test
         [InlineData(12, 100000000, 0.25)]
         [InlineData(20, 100000000, 0.25)]
         [InlineData(100, 1000000000, 0.25)]
+        [Trait("Category", "Long Run Time")]
         public void GivenNewDie_WhenRollMultipleTimes_ThenResultDistributionUniform(int sides, int numberOfRolls, float tollerancePercentage)
         {
             // Given

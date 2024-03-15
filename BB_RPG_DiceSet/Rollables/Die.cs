@@ -46,5 +46,15 @@ namespace BB_RPG_DiceSet
         {
             _label = label;
         }
+
+        public int Max()
+        {
+            return _sides;
+        }
+
+        public int Min()
+        {
+            return 1;
+        }
     }
 }

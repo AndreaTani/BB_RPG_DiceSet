@@ -13,15 +13,11 @@ namespace BB_RPG_DiceSet
         private string _label;
 
         /// <summary>
-        /// Create a bonus with a positive <see cref="int"/> or Zero value
+        /// Create a bonus with a positive or Zero value and a penalty with negative value
         /// </summary>
         /// <param name="bonusValue"></param>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public Bonus(int bonusValue)
         {
-            if (bonusValue < 0)
-                throw new ArgumentOutOfRangeException(nameof(bonusValue));
-
             _bonusValue = bonusValue;
             _label = string.Empty;
     }
@@ -47,6 +43,16 @@ namespace BB_RPG_DiceSet
         public void SetLabel(string label)
         {
             _label = label;
+        }
+
+        public int Max()
+        {
+            return _bonusValue;
+        }
+
+        public int Min()
+        {
+            return _bonusValue;
         }
     }
 }

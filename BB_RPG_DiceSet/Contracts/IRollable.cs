@@ -14,7 +14,7 @@
         /// <summary>
         /// Roll the dice-like object
         /// </summary>
-        /// <returns>A <see cref="DiceResult"/> struct containing the base result and the bonus result</returns>
+        /// <returns>A <see cref="DiceResult"/> struct containing the base result and the bonus/penalty result</returns>
         public DiceResult RollSeparate();
 
         /// <summary>
@@ -28,5 +28,17 @@
         /// </summary>
         /// <param name="label">The new label to be set for the dice-like object</param>
         public void SetLabel(string label);
+
+        /// <summary>
+        /// Gets the maximum nuber a dice-like object can return
+        /// </summary>
+        /// <returns><see cref="int"/></returns>
+        public int Max();
+
+        /// <summary>
+        /// Gets the minimum nuber a dice-like object can return
+        /// </summary>
+        /// <returns><see cref="int"/></returns>
+        public int Min();
     }
 }
