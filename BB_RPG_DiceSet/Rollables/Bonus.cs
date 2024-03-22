@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BB_RPG_DiceSet
+﻿namespace BB_RPG_DiceSet
 {
     public class Bonus : IRollable
     {
@@ -20,7 +14,7 @@ namespace BB_RPG_DiceSet
         {
             _bonusValue = bonusValue;
             _label = string.Empty;
-    }
+        }
 
         public int Roll()
         {

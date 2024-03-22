@@ -1,10 +1,13 @@
 
+
 # BB_RPG_DiceSet
 
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Installation](#installation)
+- [Features](#features)
+- [Version History](#versions)
 - [Usage](#usage)
 - [Examples](#examples)
 - [Contributing](#contributing)
@@ -12,57 +15,106 @@
 
 ## Introduction
 
-BB_RPG_DiceSet is a simple C# library for simulating dice rolls. It includes a `DiceSet` class that allows users to define and roll sets of dice, providing both a total result and the result from the dice separated from the bonus or penalty for certain RPG Games that might need that. The dice rolls results are determined using a cryptographic random function and the dice distribution has been tested to be uniform within 0.25% in 100 Million Rolls, guaranteeing dice rolls to be sufficiently random but also fair.
+BB_RPG_DiceSet empowers you to integrate comprehensive dice rolling mechanics into your tabletop RPG (TTRPG) development projects. It offers a user-friendly and versatile API for rolling various dice types, applying modifiers, and combining rolls for dynamic gameplay experiences.
+
+The dice rolls results are determined using a cryptographic random function and the dice distribution has been tested to be uniform within 0.25% in 100 Million Rolls, guaranteeing dice rolls to be sufficiently random but also fair in distribution.
+
+## Features
+
+- Standard Dice Types: Roll any of the commonly used dice types, including d4, d6, d8, d10, d12, d20, and d100.
+- Custom Dice Types: Create dice with any number of sides using the Die class constructor. This allows you to define unique dice types like D32 or D7 for specialized game mechanics.
+- Multiple Dice Roll using Dice Set: Specify the number of dice and their type with a concise notation like "3d10" to roll three ten-sided dice simultaneously.
+- Modifiers: Apply bonuses or penalties directly within the notation. For example, "3d10+5" rolls three ten-sided dice and adds a +5 modifier to the final result.
+- Dice Trays: Combine a variety of dice rolls (including dice sets and bonuses). This allows you to efficiently roll multiple dice types together and potentially track individual results.
+
 
 ## Installation
 
-To use BB_RPG_DiceSet in your C# project, you can install it via NuGet Package Manager Console:
+You can install BB_RPG_DiceSet dsirectly from Visual Studio following these steps:
+
+1. Right-click on your project in the Solution Explorer.
+2. Select "Manage NuGet Packages..."
+3. In the search bar, type "BB_RPG_DiceSet".
+4. Select the package and click "Install".
+
+
+Or you can install it via NuGet Package Manager Console:
 
 ```bash
 nuget install BB_RPG_DiceSet
 ```
 
+## Versions
+### Version 1.1.2
+- Added dice from the standard set (d4, d6, d8, d10, d12, d20, d100)
+...
+
+### Version 1.1.1
+- Bonuses can have negative values representing penalties
+...
+
+See the [Changelog](CHANGELOG.md) for more details
+
+
 ## Usage
 
-To get started, create an instance of the  `Die`, `DiceSet`, or  `DiceTray` class by providing a description of the die, dice set or dice tray.
-The description for the Dice set follows the classic notation format `<number_of_dice>d<sides>+<bonus>` or `<number_of_dice>d<sides>-<penalty>`. 
+To get started, create an instance of the  `Die`, `DiceSet`, or  `DiceSetTray` class by providing a description of the die, dice set or dice tray.
+The description for the Dice set follows the classic notation format `<number_of_dice>d<sides>+<bonus>`. 
 After initializing, you can use the `Roll()` method to get the total result or `RollSeparate()` to get individual results.
-In case of a `DiceTray` you can also call the method `RollTray()` and get a result for each element of the tray.
+In case of a `DiceSetTray` you can also call the method `RollTray()` and get a result for each element of the tray.
 
 ## Examples
 
 Here's an example demonstrating how to use the library to simulate different dice rolls:
 
-### Single Die
+### Single standard die
 ```csharp
 using BB_RPG_DiceSet;
 
-// Simulate a standard six-sided die roll
-Die standardDie = new Die(6);
-int standardDieResult = standardDie.Roll();
-Console.WriteLine($"Standard Die Result: {standardDieResult}");
+public class Example
+{
+  public static void Main(string[] args)
+  {
+    Die die = new D20(); // Create a classic d20 die object
+    int result = die.Roll(); // Roll the die
+
+    Console.WriteLine("Result: {0}", result);
+  }
+}
 ```
 
-### Dice Set
+### Single custom die
 ```csharp
 using BB_RPG_DiceSet;
 
-// Simulate a custom dice set containing 3 ten-sided dice and no bonus or penalty
-DiceSet customDiceSet = new DiceSet("3d10");
-int customDiceSetResult = customDiceSet.Roll();
-Console.WriteLine($"Dice Set Result: {customDiceSetResult}");
+public class Example
+{
+  public static void Main(string[] args)
+  {
+    Die die = new Die(32); // Create a custom d32 die object
+    int result = die.Roll(); // Roll the die
 
-// Simulate a custom dice set containing 2 six-sided dice with a bonus of 3
-DiceSet diceSet = new DiceSet("2d6+3");
-int totalResult = diceSet.Roll();
-Console.WriteLine($"Dice Set Result: {totalResult}");
-
-// Roll the dice set and get dice result and bonus/penalty result
-DiceResult separateResult = diceSet.RollSeparate();
-Console.WriteLine($"Separated Results: Base = {separateResult.Base}, Bonus = {separateResult.Bonus}");
+    Console.WriteLine("Result: {0}", result);
+  }
+}
 ```
 
-### Dice Set Tray
+### Multiple dice roll with modifiers via DiceSet
+```csharp
+using BB_RPG_DiceSet;
+
+public class Example
+{
+  public static void Main(string[] args)
+  {
+    int result = new DiceSet("3d10+5").Roll(); // Roll 3d10 with a +5 modifier
+
+    Console.WriteLine("Result: {0}", result);
+  }
+}
+```
+
+### DiceSet Tray
 ```csharp
 using BB_RPG_DiceSet;
 
@@ -72,7 +124,7 @@ DiceSetTray tray = new DiceSetTray();
 // add a new d6
 tray.Add(new Die(6));
 // add a new set of 3 ten-sided dice plus a penalty of 4
-tray.Add(new DiceSet("3d10-4"));
+tray.Add(new DiceSet("3d10-4");
 // add a separate bonus
 tray.Add(new Bonus(15));
 

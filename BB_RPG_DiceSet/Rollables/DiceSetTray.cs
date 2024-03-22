@@ -34,7 +34,7 @@
         }
 
         /// <summary>
-        /// Add a <c>IRollable</c> item to the <c>DiceTray</c>
+        /// Add a <c>IRollable</c> item to the <c>DiceSetTray</c>
         /// </summary>
         /// <param name="rollable">A single IRollable item</param>
         public new void Add(IRollable rollable)
@@ -43,7 +43,7 @@
         }
 
         /// <summary>
-        /// Add a list of <c>IRollable</c> items to the <c>DiceTray</c>
+        /// Add a list of <c>IRollable</c> items to the <c>DiceSetTray</c>
         /// </summary>
         /// <param name="rollable">A list of IRollable item</param>
         public void AddRange(List<IRollable> list)

@@ -1,8 +1,13 @@
 ﻿# Version history
 
+## Version 1.1.2
+- Added dice from the standard set (d4, d6, d8, d10, d12, d20, d100)
+- Added IModifier interface left for the use to implement it for creating game specific modifiers in a clean way
+- Better examples in README file
+
 ## Version 1.1.1
 - Bonuses can have negative values representing penalties
-- Added two DiceTray methods
+- Added two DiceSetTray methods
 	- Add, for adding a single IRollable item to the tray
 	- AddRange, for adding a list of IRollable items to the tray
 

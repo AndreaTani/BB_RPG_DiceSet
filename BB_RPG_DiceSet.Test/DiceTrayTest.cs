@@ -1,6 +1,6 @@
 ﻿namespace BB_RPG_DiceSet.Test
 {
-    public class DiceTrayTest
+    public class DiceSetTrayTest
     {
         [Theory]
         [InlineData(typeof(Die), 4, typeof(Bonus), 2, 3, 6)]  // Expected Min and Max are the last two arguments

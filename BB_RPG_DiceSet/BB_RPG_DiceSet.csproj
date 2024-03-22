@@ -14,10 +14,10 @@
     <Authors>$(AssemblyName), AndreaTani</Authors>
     <Company>$(Authors), BlackBullSoftware</Company>
     <PackageIcon>rpg.jpg</PackageIcon>
-    <Description>A simple C# library for simulating dice rolls</Description>
-    <AssemblyVersion>1.1.1</AssemblyVersion>
-    <FileVersion>1.1.1</FileVersion>
-    <Version>1.1.1</Version>
+    <Description>A simple C# library for simulating dice rolls. See the Changelog for details: [Changelog](CHANGELOG.md)</Description>
+    <AssemblyVersion>1.1.2</AssemblyVersion>
+    <FileVersion>1.1.2</FileVersion>
+    <Version>1.1.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

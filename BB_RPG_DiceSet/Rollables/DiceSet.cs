@@ -21,8 +21,8 @@ namespace BB_RPG_DiceSet
         private readonly int _numberOfSides;
         private readonly int _bonus;
 
-        private int _min;
-        private int _max;
+        private readonly int _min;
+        private readonly int _max;
 
         /// <summary>
         /// Create a set of uniform dice plus a bonus/penalty
