@@ -1,5 +1,9 @@
 ﻿# Version history
 
+## Version 1.2.0
+- Added a modifier example implementing IModifier to illustrate a possible use of the interface
+- Fixed documentation issues
+
 ## Version 1.1.2
 - Added dice from the standard set (d4, d6, d8, d10, d12, d20, d100)
 - Added IModifier interface left for the use to implement it for creating game specific modifiers in a clean way

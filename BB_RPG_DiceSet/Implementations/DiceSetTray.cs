@@ -99,11 +99,19 @@
             return result;
         }
 
+        /// <summary>
+        /// Gets the minimum nuber a dice-like object can return
+        /// </summary>
+        /// <returns><see cref="int"/></returns>
         public int Min()
         {
             return _tray.Sum(t => t.Min());
         }
 
+        /// <summary>
+        /// Gets the maximum nuber a dice-like object can return
+        /// </summary>
+        /// <returns><see cref="int"/></returns>
         public int Max()
         {
             return _tray.Sum(t => t.Max());

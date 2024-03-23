@@ -1,5 +1,3 @@
-
-
 # BB_RPG_DiceSet
 
 ## Table of Contents
@@ -45,16 +43,10 @@ nuget install BB_RPG_DiceSet
 ```
 
 ## Versions
-### Version 1.1.2
-- Added dice from the standard set (d4, d6, d8, d10, d12, d20, d100)
-...
-
-### Version 1.1.1
-- Bonuses can have negative values representing penalties
-...
-
-See the [Changelog](CHANGELOG.md) for more details
-
+Here are listed the latest versions with the description of their most prominent features, see the [Changelog](CHANGELOG.md) for more details
+- **Version 1.2.0:** Added a modifier example implementing IModifier interface
+- **Version 1.1.2:** Added dice from the standard set (d4, d6, d8, d10, d12, d20, d100)
+- **Version 1.1.1:** Bonuses can have negative values representing penalties
 
 ## Usage
 

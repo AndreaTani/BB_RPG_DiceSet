@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,31 +8,32 @@
     <Title>BlackBull RPG Dice set</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/AndreaTani/BB_RPG_DiceSet</RepositoryUrl>
-    <PackageTags>rpg; dice; random</PackageTags>
+    <PackageTags>rpg; dice; random; dice roll; dice set; dice tray</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageIcon>rpg.jpg</PackageIcon>
     <Authors>$(AssemblyName), AndreaTani</Authors>
     <Company>$(Authors), BlackBullSoftware</Company>
     <PackageIcon>rpg.jpg</PackageIcon>
-    <Description>A simple C# library for simulating dice rolls. See the Changelog for details: [Changelog](CHANGELOG.md)</Description>
-    <AssemblyVersion>1.1.2</AssemblyVersion>
-    <FileVersion>1.1.2</FileVersion>
-    <Version>1.1.2</Version>
+    <Description>A simple C# library for simulating dice rolls</Description>
+    <AssemblyVersion>1.2.0</AssemblyVersion>
+    <FileVersion>1.2.0</FileVersion>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
+    <None Update="CHANGELOG.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\CHANGELOG.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
+    <None Update="README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="C:\Users\andre\Downloads\rpg.jpg">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
+    <None Update="rpg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="rpg.jpg" Pack="true" PackagePath=""/>
+    <None Include="README.md" Pack="true" PackagePath=""/>
+    <None Include="CHANGELOG.md" Pack="true" PackagePath=""/>
   </ItemGroup>
 
 </Project>
